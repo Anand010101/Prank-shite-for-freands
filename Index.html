@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Device Seized Notice</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000 url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .location, .message, .hindi {
+      font-size: 1.2rem;
+      margin: 1rem auto;
+      max-width: 700px;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin: 2rem 0;
+    }
+
+    .logos img {
+      width: 120px;
+      height: auto;
+    }
+
+    .person {
+      position: absolute;
+      bottom: 10%;
+      right: 3%;
+    }
+
+    .person img {
+      width: 180px;
+      border-radius: 10px;
+    }
+
+    .clock {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.4rem;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .logos {
+        flex-direction: column;
+      }
+      .person {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>THIS DEVICE HAS BEEN SEIZED</h1>
+  <p class="location">Device Location: <strong>22.5549058, 88.3892067</strong></p>
+
+  <p class="message">
+    This device has been seized by the Central Bureau of Investigation pursuant to a seizure warrant
+    issued by the Court of Special Judge, CBI Cases, Patna.
+  </p>
+
+  <p class="hindi">
+    इस डिवाइस को केंद्रीय जांच ब्यूरो ने जब्त कर लिया है <br>
+    द्वारा जारी किए गए सीज़र वारंट के अनुसार <br>
+    विशेष न्यायाधीश की अदालत, सी.बी.आई. मामले, पटना
+  </p>
+
+  <div class="logos">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CBI_Logo.svg/1200px-CBI_Logo.svg.png" alt="CBI Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/Kolkata_Police_Logo.svg/1024px-Kolkata_Police_Logo.svg.png" alt="Kolkata Police Logo">
+  </div>
+
+  <div class="person">
+    <img src="https://www.kindpng.com/picc/m/52-523304_businessman-png-file-businessman-png-transparent-png.png" alt="Person Image">
+  </div>
+
+  <div class="clock" id="clock">15:02</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      let mins = now.getMinutes();
+      if (hours < 10) hours = '0' + hours;
+      if (mins < 10) mins = '0' + mins;
+      document.getElementById('clock').textContent = `${hours}:${mins}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
